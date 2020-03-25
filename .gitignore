@@ -1,9 +1,5 @@
 output/
 
-*.c
-*.h
-*.mk
-
 # Data Files
 *.log
 *.sav
