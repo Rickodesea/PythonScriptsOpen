@@ -3,7 +3,6 @@
 #include <string.h>
 
 //Paste String Here (using default options)
-//you could of paste the string starting here if you wanted; C does not care
 char stringVar[] = 
 "#include <stdio.h>\n"
 "\n"
@@ -23,7 +22,6 @@ char stringVar[] =
 "}"; //Remember to add ';' for variables
 
 //Paste String Here (define=on)
-//paste string starting here or use a trailing slash (like in this case)
 #define stringDef \
 "#include <stdio.h>\n" \
 "\n" \
