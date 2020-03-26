@@ -85,8 +85,8 @@ def string_is_a_member(string, stringList):
 		if item.lower() == string.lower(): return True
 	return False
 
-def apply_options():
-	for option in sys.argv[2:]:
+def apply_options(options=[]):
+	for option in options:
 		pair = option.split(EQU)
 		if len(pair) == 2:
 			if pair[0].lower() == PARAM.lower():
@@ -144,13 +144,21 @@ def genclines(rawlines):
 		clines.append(string)
 	return clines
 
+def get_options_from_cmd():
+	if(len(sys.argv) > 2): return sys.argv[2:]
+	return []
+
+## exported functions
+def convert(lines, options=[]):
+	apply_options(options)
+	return content_from_lines(genclines(lines), '\n')
+#####################
+
 def main():
 	argc = len(sys.argv)
 	if(argc > 1):
 		rawlines = readlines(sys.argv[1])
-		if(argc > 2): apply_options()
-		clines = genclines(rawlines)
-		content = content_from_lines(clines, '\n')
+		content = convert(rawlines, get_options_from_cmd())
 		write("output.txt", content)
 	else:
 		print "text_to_c.py", "[pathfile]", "([...options])", '\n'
@@ -162,8 +170,9 @@ def main():
 		print LINE, "ON: inserts a '\\n' at the end of the string"+",", "OFF: [nothing]"+",", "[DEFAULT 'ON']"
 
 
-#Script starts
-main()
+#Run Script
+if __name__=="__main__":
+	main()
 
 
 
