@@ -148,10 +148,19 @@ def get_options_from_cmd():
 	if(len(sys.argv) > 2): return sys.argv[2:]
 	return []
 
+def reset_state():
+	STATE[PARAM] = False
+	STATE[ESCAPE] = True
+	STATE[DEFINE] = False
+	STATE[LINE] = True
+
+
 ## exported functions
 def convert(lines, options=[]):
 	apply_options(options)
-	return content_from_lines(genclines(lines), '\n')
+	content = content_from_lines(genclines(lines), '\n')
+	reset_state()
+	return content
 #####################
 
 def main():
@@ -159,6 +168,7 @@ def main():
 	if(argc > 1):
 		rawlines = readlines(sys.argv[1])
 		content = convert(rawlines, get_options_from_cmd())
+		reset_state()
 		write("output.txt", content)
 	else:
 		print "text_to_c.py", "[pathfile]", "([...options])", '\n'
