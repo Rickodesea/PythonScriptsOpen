@@ -1,9 +1,28 @@
 # text_to_c.py
 Python Script that converts any text given to it into a string that can be used directly in C program.
 
+For pipeline (using script inside of your projects (in other scripts)) use:
+* use the function 'convert(lines, options=[])' which returns a string
+    * lines is a list of strings
+        * you can get the lines of your input file using the function 'readlines([file])'
+    * options is optional; it is a list of command switches (string) e.g. 'define=on'
+* For example, using the file, 'input.txt' as our input file (ofcourse, you can get your input elsewhere):
+```python
+    import text_to_c as ctext
+
+    lines = ctext.readlines('input.txt')
+
+    ## we can get the converted string by using 'convert(lines, options=[])', for example:
+    print ctext.convert(lines)
+    print ctext.convert(lines, ['define=on'])
+    print ctext.convert(lines, ['line=off', 'param=on'])
+```
+
+For console (on the command line, in terminal) use:
 * for help/info, run: python text_to_c.py
 * to use, run: python text_to_c.py [file] ;replace [file] with your actual filename, duh
-all run will write to a file called 'output.txt' in the working directory
+
+All console run will write the output to a file called 'output.txt' in the working directory.
 
 For instance, using the following file, 'input.txt', as our input file and for the text, we will us this C program as its content:
 ```c
