@@ -169,7 +169,10 @@ def main():
 		rawlines = readlines(sys.argv[1])
 		content = convert(rawlines, get_options_from_cmd())
 		reset_state()
-		write("output.txt", content)
+		if(argc == 2):
+			sys.stdout.write(content)
+		else:
+			write(sys.argv[2] + ".txt", content)
 	else:
 		print "text_to_c.py", "[pathfile]", "([...options])", '\n'
 		print "USE-OPTION:", "[option]=on,", "[option]=off", '\n'
