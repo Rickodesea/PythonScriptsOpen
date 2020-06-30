@@ -1,0 +1,2 @@
+This is a demonstration binary file.  It can be anything: music, image, document, etc.
+If it can be stored in a file, binary_to_c.py can convert to a C array.
