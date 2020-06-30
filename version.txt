@@ -1,6 +1,8 @@
-1.2.0
+1.2.1
 
 [History]
+1.2.1
+	- Fixed binary_to_c readme
 1.2.0
 	- Added binary_to_c.py script
 1.1.0
