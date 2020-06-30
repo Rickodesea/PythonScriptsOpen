@@ -3,6 +3,7 @@ A collection of useful python scripts to assist with everyday coding development
 
 Some scripts include:
 * text_to_c.py : converts text to C string
+* binary_to_c.py : converts binary to C array
 
 ## License
 This project is licensed under the Zlib License - see the [eula.txt](eula.txt) file for details.
